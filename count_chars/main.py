@@ -40,4 +40,5 @@ def main():
   resultFile.writelines(wordObj.getLines())
   resultFile.close();
 if __name__ == '__main__':
+  print("not optimized")
   cProfile.run('main()')
