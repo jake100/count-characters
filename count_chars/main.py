@@ -2,6 +2,7 @@ import string
 import sys
 import os
 import math
+import cProfile
 class Word:
   def __init__(self):
     self.s = ""
@@ -26,9 +27,9 @@ class Words:
     for textWord in self.textWords:
       lines.extend(str(textWord))
     return lines
-if __name__ == '__main__':
+def main():
   __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-  textFile = open(os.path.join(__location__, 'text.txt'), "r")
+  textFile = open(os.path.join(__location__, 'dictionary.txt'), "r")
   lines = textFile.readlines()
   textFile.close()
   wordObj = Words()
@@ -38,3 +39,5 @@ if __name__ == '__main__':
   resultFile = open(os.path.join(__location__, 'letter count.txt'), "w")
   resultFile.writelines(wordObj.getLines())
   resultFile.close();
+if __name__ == '__main__':
+  cProfile.run('main()')
